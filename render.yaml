@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: 23-flask-starter
-    env: static
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist

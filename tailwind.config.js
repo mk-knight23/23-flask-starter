@@ -7,8 +7,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                flask: "#00b4d8", // A fresh blue/cyan for FlaskHub
-                dark: "#0a192f",
+                flask: "#0891b2", // Premium teal/cyan for FlaskHub
+                dark: "#020617",
             },
             fontFamily: {
                 mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
