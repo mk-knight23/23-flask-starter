@@ -35,8 +35,8 @@ npm install
 
 ## 🌐 Live Deployments
 
-- Vercel: https://23-flask-starter.vercel.app
-- GitHub Pages: https://mk-knight23.github.io/23-flask-starter/
+- **Frontend Demo (Vercel)**: https://23-flask-starter.vercel.app
+- **GitHub Repository**: https://github.com/mk-knight23/23-flask-starter
 
-Status: 🟢 Deployments Live  
-Last Updated: 2026-01-23
+Status: 🟢 Frontend Deployed  
+Last Updated: 2026-01-29
