@@ -8,5 +8,5 @@ export default defineConfig({
         react(),
         tailwindcss(),
     ],
-    base: process.env.VERCEL || process.env.NETLIFY ? './' : '/23-flask-starter/',
+    base: process.env.VERCEL || process.env.NETLIFY ? './' : '/48-starter-flask/',
 })

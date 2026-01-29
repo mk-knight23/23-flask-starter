@@ -1,22 +1,102 @@
 @import "tailwindcss";
 
 @theme {
-    --color-flask: #ff4b4b;
+    --color-academic-primary: #1a365d;
+    --color-academic-secondary: #2c5282;
+    --color-academic-accent: #c53030;
+    --color-academic-cream: #fffff0;
+    --color-academic-paper: #fdfbf7;
+    --color-academic-text: #2d3748;
+    --color-academic-muted: #718096;
+    --color-academic-border: #e2e8f0;
 }
 
 @layer base {
     body {
-        @apply bg-[#0a192f] text-white antialiased selection:bg-flask/30;
+        @apply bg-[#fdfbf7] text-[#2d3748] antialiased selection:bg-blue-100;
+        font-family: 'Georgia', 'Times New Roman', serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 }
 
 @layer components {
-    .glass-panel {
-        @apply bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden transition-all;
+    .paper-card {
+        @apply bg-white border border-slate-200 rounded-lg shadow-sm p-8;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
-    .neon-border {
-        @apply border border-flask/20 hover:border-flask/50 shadow-lg hover:shadow-flask/20;
+    .citation {
+        @apply text-xs text-slate-500 font-mono hover:text-blue-600 cursor-pointer transition-colors;
+    }
+
+    .citation-number {
+        @apply inline-flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-slate-300 rounded hover:bg-blue-600 cursor-pointer transition-colors;
+    }
+
+    .footnote {
+        @apply text-xs text-slate-500 mt-2 pt-2 border-t border-slate-100;
+    }
+
+    .reference-item {
+        @apply text-sm text-slate-600 leading-relaxed mb-3 pl-4 border-l-2 border-slate-200;
+    }
+
+    .author-block {
+        @apply text-center mb-8;
+    }
+
+    .author-name {
+        @apply text-lg font-semibold text-slate-900;
+    }
+
+    .author-affiliation {
+        @apply text-sm text-slate-500 italic;
+    }
+
+    .abstract-heading {
+        @apply text-sm font-bold uppercase tracking-wider text-slate-500 mb-3;
+    }
+
+    .abstract-text {
+        @apply text-base leading-relaxed text-slate-700 italic;
+    }
+
+    .section-heading {
+        @apply text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200;
+    }
+
+    .math-equation {
+        @apply font-mono text-sm bg-slate-50 p-4 rounded border border-slate-200 my-4 text-center;
+    }
+
+    .data-table {
+        @apply w-full text-sm border-collapse;
+    }
+
+    .data-table th {
+        @apply px-4 py-2 text-left font-semibold text-slate-700 bg-slate-50 border-b border-slate-200;
+    }
+
+    .data-table td {
+        @apply px-4 py-2 border-b border-slate-100 text-slate-600;
+    }
+
+    .data-table tr:hover td {
+        @apply bg-slate-50;
+    }
+
+    .methodology-step {
+        @apply flex items-start gap-4 mb-4;
+    }
+
+    .methodology-number {
+        @apply flex-shrink-0 w-8 h-8 flex items-center justify-center text-sm font-bold text-white bg-slate-700 rounded-full;
+    }
+
+    .methodology-content {
+        @apply flex-1;
     }
 }

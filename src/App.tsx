@@ -1,203 +1,248 @@
 import { motion } from 'framer-motion';
-import { Rocket, Zap, Shield, Globe, Terminal, Code2, ArrowRight, Github, Send, Layers, Cpu, Database } from 'lucide-react';
+import { BookOpen, FileText, BarChart2, Search, Quote, Link2, Download, Users, Award, Globe, ArrowRight, ExternalLink, Database, Calculator, Scale, Calendar } from 'lucide-react';
 
-const Features = [
-    {
-        icon: <Zap className="w-6 h-6 text-flask" />,
-        title: "Ultra-Fast Routing",
-        description: "Built on top of a highly optimized internal engine for sub-millisecond route resolution."
-    },
-    {
-        icon: <Shield className="w-6 h-6 text-flask" />,
-        title: "Auto-Security",
-        description: "Zero-config protection against XSS, CSRF, and SQL injection out of the box."
-    },
-    {
-        icon: <Globe className="w-6 h-6 text-flask" />,
-        title: "Global CDN Edge",
-        description: "Deploy your Python APIs globally with one click and edge-cached responses."
-    }
+const REFERENCES = [
+    { id: 1, authors: "Smith, J., & Johnson, K.", title: "Scalable API Architecture Patterns", journal: "Journal of Systems Architecture", year: "2024", volume: "142", pages: "102889" },
+    { id: 2, authors: "Chen, L., et al.", title: "Async Performance Benchmarks in Python", journal: "Proceedings of the 2024 Python Conference", year: "2024", pages: "234-251" },
+    { id: 3, authors: "Williams, R., & Davis, M.", title: "Microservices Communication Patterns", journal: "IEEE Software", year: "2023", volume: "40", issue: "3", pages: "45-58" },
 ];
 
-const Stats = [
-    { label: "Request/Sec", value: "250K+" },
-    { label: "Cold Start", value: "< 12ms" },
-    { label: "Uptime", value: "99.99%" }
+const KEY_FINDINGS = [
+    { metric: "Response Latency", value: "42%", description: "Reduction in median response time compared to traditional WSGI implementations", source: "[2]" },
+    { metric: "Throughput", value: "3.2x", description: "Higher request throughput under concurrent load conditions", source: "[2]" },
+    { metric: "Memory Usage", value: "28%", description: "Lower memory footprint during sustained operation", source: "[1]" },
+];
+
+const AUTHORS = [
+    { name: "Dr. Sarah Mitchell", affiliation: "Department of Computer Science, Stanford University" },
+    { name: "Prof. James Chen", affiliation: "Software Systems Laboratory, MIT" },
+    { name: "Dr. Emily Watson", affiliation: "Data Science Institute, Oxford University" },
 ];
 
 export default function App() {
     return (
-        <div className="min-h-screen">
-            {/* Background Decor */}
-            <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-flask/10 blur-[120px] rounded-full" />
-                <div className="absolute bottom-[10%] right-[-5%] w-[30%] h-[30%] bg-blue-600/5 blur-[100px] rounded-full" />
-            </div>
-
-            {/* Navigation */}
-            <nav className="border-b border-white/5 bg-[#0a192f]/50 backdrop-blur-xl sticky top-0 z-50">
-                <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-                    <div className="flex items-center gap-3 group cursor-pointer">
-                        <div className="p-2 bg-flask/20 rounded-lg group-hover:bg-flask/30 transition-colors">
-                            <Rocket className="w-6 h-6 text-flask" />
+        <div className="min-h-screen bg-[#fdfbf7]">
+            {/* Header */}
+            <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
+                <div className="max-w-5xl mx-auto px-8 py-4 flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                        <div className="p-2 bg-slate-100 rounded">
+                            <BookOpen className="w-5 h-5 text-slate-700" />
                         </div>
-                        <span className="text-xl font-bold tracking-tight text-white uppercase tracking-widest">Flask<span className="text-flask">Hub</span></span>
+                        <span className="font-semibold text-slate-900">ScholarStack</span>
                     </div>
-
-                    <div className="hidden md:flex items-center gap-10">
-                        {['Runtime', 'Engine', 'Docs', 'Pricing'].map((item) => (
-                            <a key={item} href="#" className="text-xs font-bold uppercase tracking-widest hover:text-flask transition-colors">{item}</a>
-                        ))}
+                    <div className="flex items-center gap-6 text-sm">
+                        <a href="#" className="text-slate-600 hover:text-slate-900">Abstract</a>
+                        <a href="#" className="text-slate-600 hover:text-slate-900">Introduction</a>
+                        <a href="#" className="text-slate-600 hover:text-slate-900">Methods</a>
+                        <a href="#" className="text-slate-600 hover:text-slate-900">Results</a>
+                        <a href="#" className="text-slate-600 hover:text-slate-900">Discussion</a>
+                        <button className="flex items-center gap-2 px-3 py-1.5 bg-slate-900 text-white rounded hover:bg-slate-800 transition-colors">
+                            <Download className="w-4 h-4" /> PDF
+                        </button>
                     </div>
-
-                    <button className="px-6 py-2.5 bg-flask text-[#0a192f] font-black text-xs uppercase tracking-widest rounded-full hover:scale-105 transition-transform shadow-neon-strong">
-                        Get Trial
-                    </button>
                 </div>
-            </nav>
+            </header>
 
-            <main className="max-w-7xl mx-auto px-6">
-                {/* Hero */}
-                <section className="py-24 grid lg:grid-cols-2 gap-16 items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 glass-panel mb-8">
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-flask opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-flask"></span>
-                            </span>
-                            <span className="text-[10px] uppercase font-bold tracking-widest">Now supporting Async v.4.2</span>
-                        </div>
+            <main className="max-w-5xl mx-auto px-8 py-12">
+                {/* Paper Header */}
+                <motion.article
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <div className="text-center mb-12">
+                        <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-50 rounded-full mb-6">
+                            Peer-Reviewed Research Article
+                        </span>
 
-                        <h1 className="text-6xl md:text-[5rem] font-black text-white leading-[0.9] mb-8 uppercase italic tracking-tighter">
-                            Accelerate your <br />
-                            <span className="text-flask">Backend</span> <br />
-                            Performance.
+                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+                            Optimizing Python Web APIs: A Comparative Analysis of Synchronous and Asynchronous Architectures
                         </h1>
 
-                        <p className="text-lg text-slate-400 max-w-lg mb-12 leading-relaxed font-medium">
-                            The high-performance API hub for Python developers who demand extreme speed, rock-solid security, and instant global scale.
+                        <div className="author-block">
+                            <p className="author-name">{AUTHORS.map(a => a.name).join(", ")}</p>
+                            <p className="author-affiliation">
+                                {AUTHORS.map(a => a.affiliation).join("; ")}
+                            </p>
+                        </div>
+
+                        <div className="flex items-center justify-center gap-6 text-sm text-slate-500 mt-6">
+                            <span className="flex items-center gap-1">
+                                <Calendar className="w-4 h-4" /> Published: January 15, 2026
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <FileText className="w-4 h-4" /> DOI: 10.1234/ss.2026.001
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <Globe className="w-4 h-4" /> Views: 12,847
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Abstract */}
+                    <section className="paper-card mb-8">
+                        <h2 className="abstract-heading">Abstract</h2>
+                        <p className="abstract-text">
+                            This study presents a comprehensive evaluation of FlaskStack, a novel architectural pattern for building high-performance Python web APIs. We conduct empirical benchmarks comparing synchronous WSGI implementations against asynchronous ASGI-based solutions across multiple metrics including response latency, throughput scalability, and resource utilization. Our findings indicate that FlaskStack achieves a 42% reduction in median response latency and 3.2x higher throughput under concurrent load conditions<span className="citation">[1]</span>. These results have significant implications for organizations seeking to optimize their Python-based web infrastructure for high-concurrency scenarios.
+                        </p>
+                        <div className="footnote">
+                            <strong>Keywords:</strong> Python, Web APIs, Asynchronous Programming, Performance Optimization, Flask, ASGI, Microservices
+                        </div>
+                    </section>
+
+                    {/* Introduction */}
+                    <section className="mb-12">
+                        <h2 className="section-heading">1. Introduction</h2>
+                        <p className="text-slate-700 leading-relaxed mb-6">
+                            The demand for high-performance web APIs has grown substantially with the proliferation of distributed systems and microservices architectures<span className="citation">[3]</span>. Python, despite its widespread adoption for web development, has historically faced criticism for its synchronous execution model in traditional WSGI deployments.
+                        </p>
+                        <p className="text-slate-700 leading-relaxed mb-6">
+                            FlaskStack addresses these limitations by introducing a hybrid architecture that leverages the strengths of both synchronous and asynchronous programming paradigms. This approach enables developers to maintain the simplicity and familiarity of Flask while achieving performance characteristics comparable to purpose-built async frameworks.
+                        </p>
+                        <div className="paper-card my-8 bg-slate-50">
+                            <div className="flex items-start gap-3">
+                                <Quote className="w-6 h-6 text-slate-400 flex-shrink-0 mt-1" />
+                                <blockquote className="text-slate-700 italic">
+                                    "The key innovation of FlaskStack lies in its ability to seamlessly transition between synchronous and asynchronous execution contexts based on workload characteristics, without requiring significant changes to application code."
+                                </blockquote>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Methods */}
+                    <section className="mb-12">
+                        <h2 className="section-heading">2. Methodology</h2>
+                        <p className="text-slate-700 leading-relaxed mb-8">
+                            Our experimental methodology employed a controlled benchmarking environment with standardized hardware and network conditions. We utilized wrk2 as our primary load generation tool, configured to produce consistent request rates across all test scenarios.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-6">
-                            <button className="px-10 py-5 bg-flask text-[#0a192f] font-black rounded-2xl flex items-center justify-center gap-3 hover:shadow-flask/20 hover:shadow-2xl transition-all group">
-                                Deploy API <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                            </button>
-                            <button className="px-10 py-5 glass-panel text-white font-black rounded-2xl hover:bg-white/10 transition-colors flex items-center justify-center gap-3 border border-white/10 hover:border-flask/50">
-                                <Terminal className="w-4 h-4" /> View Docs
-                            </button>
-                        </div>
-                    </motion.div>
-
-                    {/* Terminal / Code Card */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="hidden lg:block relative"
-                    >
-                        <div className="glass-panel p-2 neon-border overflow-hidden">
-                            <div className="flex gap-2 p-3 border-b border-white/5">
-                                <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                                <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                                <div className="w-3 h-3 rounded-full bg-emerald-500/50" />
+                        <div className="grid md:grid-cols-3 gap-6 mb-8">
+                            <div className="methodology-step flex-col">
+                                <div className="methodology-number mb-3">1</div>
+                                <h4 className="font-semibold text-slate-900 mb-2">Environment Setup</h4>
+                                <p className="text-sm text-slate-600">Python 3.12, 16GB RAM, 8-core CPU</p>
                             </div>
-                            <div className="p-8 font-mono text-sm leading-relaxed overflow-x-auto whitespace-nowrap">
-                                <div className="mb-4 text-slate-500"># main.py</div>
-                                <div><span className="text-flask">from</span> flask_hub <span className="text-flask">import</span> Flask, API</div>
-                                <div>&nbsp;</div>
-                                <div>app = Flask(__name__)</div>
-                                <div>api = API(app, version=<span className="text-emerald-400">"v4.0"</span>)</div>
-                                <div>&nbsp;</div>
-                                <div><span className="text-flask">@api.route</span>(<span className="text-emerald-400">'/v1/metrics'</span>)</div>
-                                <div><span className="text-flask">async def</span> <span className="text-emerald-400">get_metrics</span>():</div>
-                                <div>&nbsp;&nbsp;&nbsp;&nbsp;stats = <span className="text-flask">await</span> api.get_telemetry()</div>
-                                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-flask">return</span> stats</div>
-                                <div>&nbsp;</div>
-                                <div className="text-slate-500">// Processing metrics in 0.04ms</div>
+                            <div className="methodology-step flex-col">
+                                <div className="methodology-number mb-3">2</div>
+                                <h4 className="font-semibold text-slate-900 mb-2">Load Generation</h4>
+                                <p className="text-sm text-slate-600">wrk2 with consistent request rates</p>
+                            </div>
+                            <div className="methodology-step flex-col">
+                                <div className="methodology-number mb-3">3</div>
+                                <h4 className="font-semibold text-slate-900 mb-2">Metrics Collection</h4>
+                                <p className="text-sm text-slate-600">Latency, throughput, memory profiles</p>
                             </div>
                         </div>
+                    </section>
 
-                        {/* Floating Card */}
-                        <div className="absolute -bottom-10 -left-10 glass-panel p-6 neon-border bg-[#0a192f]/80 animate-bounce group cursor-pointer">
-                            <div className="flex items-center gap-4 mb-2">
-                                <div className="p-2 bg-emerald-400/20 rounded-full">
-                                    <Check className="w-4 h-4 text-emerald-400" />
+                    {/* Results */}
+                    <section className="mb-12">
+                        <h2 className="section-heading">3. Results</h2>
+                        <p className="text-slate-700 leading-relaxed mb-8">
+                            The benchmarking results demonstrate significant performance improvements across all measured metrics. Below we present the key findings from our empirical evaluation.
+                        </p>
+
+                        <div className="grid md:grid-cols-3 gap-6 mb-8">
+                            {KEY_FINDINGS.map((finding, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="paper-card text-center"
+                                >
+                                    <div className="text-4xl font-bold text-slate-900 mb-2">{finding.value}</div>
+                                    <div className="text-sm font-semibold text-slate-700 mb-3">{finding.metric}</div>
+                                    <p className="text-xs text-slate-500 leading-relaxed">{finding.description}</p>
+                                    <span className="citation mt-2 inline-block">{finding.source}</span>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <div className="paper-card">
+                            <h3 className="font-semibold text-slate-900 mb-4">Table 1: Performance Comparison Under Concurrent Load</h3>
+                            <table className="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Traditional WSGI</th>
+                                        <th>FlaskStack (Async)</th>
+                                        <th>Improvement</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Median Latency (p50)</td>
+                                        <td>45ms</td>
+                                        <td>26ms</td>
+                                        <td className="text-green-600 font-medium">42%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>99th Percentile (p99)</td>
+                                        <td>128ms</td>
+                                        <td>67ms</td>
+                                        <td className="text-green-600 font-medium">48%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Requests/Second</td>
+                                        <td>2,450</td>
+                                        <td>7,840</td>
+                                        <td className="text-green-600 font-medium">3.2x</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Memory (steady state)</td>
+                                        <td>256MB</td>
+                                        <td>184MB</td>
+                                        <td className="text-green-600 font-medium">28%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    {/* Discussion */}
+                    <section className="mb-12">
+                        <h2 className="section-heading">4. Discussion</h2>
+                        <p className="text-slate-700 leading-relaxed mb-6">
+                            The results presented in Section 3 have several important implications for practitioners and researchers in the field of web API development. First, the substantial latency improvements demonstrated by FlaskStack suggest that async architectures can be practically adopted without sacrificing the developer experience that Flask provides<span className="citation">[2]</span>.
+                        </p>
+                        <p className="text-slate-700 leading-relaxed mb-6">
+                            Second, the memory efficiency gains observed under sustained load conditions indicate that FlaskStack is particularly well-suited for containerized deployments where resource constraints are a primary concern. This finding aligns with emerging industry trends toward lean, cloud-native application architectures.
+                        </p>
+                    </section>
+
+                    {/* References */}
+                    <section className="mb-12">
+                        <h2 className="section-heading">References</h2>
+                        <div className="paper-card">
+                            {REFERENCES.map((ref) => (
+                                <div key={ref.id} className="reference-item">
+                                    <span className="citation-number mr-2">[{ref.id}]</span>
+                                    <span className="text-slate-700">
+                                        {ref.authors}. ({ref.year}). <em>{ref.title}</em>. {ref.journal}{ref.volume ? `, ${ref.volume}` : ''}{ref.issue ? `(${ref.issue})` : ''}{ref.pages ? `, ${ref.pages}` : ''}.
+                                    </span>
                                 </div>
-                                <span className="text-xs font-bold uppercase tracking-widest text-white">SSL Verified</span>
-                            </div>
-                            <div className="text-[10px] text-slate-500 font-mono tracking-tighter">Endpoint: api.flaskhub.co/v4/auth</div>
+                            ))}
                         </div>
-                    </motion.div>
-                </section>
+                    </section>
 
-                {/* Stats */}
-                <section className="py-20 border-y border-white/5 mb-32">
-                    <div className="grid md:grid-cols-3 gap-12">
-                        {Stats.map((stat, i) => (
-                            <div key={i} className="text-center group">
-                                <div className="text-4xl font-black text-white mb-2 group-hover:text-flask transition-colors">{stat.value}</div>
-                                <div className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">{stat.label}</div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Features */}
-                <section className="py-20 mb-32">
-                    <div className="text-center mb-20">
-                        <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-4 italic">Core Engine <span className="text-flask">Components</span></h2>
-                        <div className="w-20 h-1 bg-flask mx-auto" />
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {Features.map((f, i) => (
-                            <div key={i} className="glass-panel p-10 hover:border-flask/30 transition-all group">
-                                <div className="mb-6 p-4 rounded-2xl bg-white/5 inline-block group-hover:scale-110 transition-transform">
-                                    {f.icon}
-                                </div>
-                                <h3 className="text-xl font-bold text-white mb-4 uppercase tracking-tight">{f.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">{f.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Call to Action */}
-                <section className="mb-32">
-                    <div className="glass-panel p-16 text-center relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 p-20 bg-flask/10 blur-[80px] rounded-full group-hover:scale-125 transition-transform" />
-                        <h2 className="text-4xl md:text-5xl font-black text-white mb-8 uppercase italic leading-none">Ready to Scale your <br /> <span className="text-flask underline decoration-flask/30 underline-offset-8">Production</span> Infrastructure?</h2>
-                        <p className="text-slate-400 max-w-lg mx-auto mb-10 text-lg">Join 15,000+ teams who build on FlaskHub for their most critical API workloads.</p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="px-12 py-5 bg-flask text-[#0a192f] font-black rounded-2xl uppercase text-xs tracking-widest hover:scale-105 transition-transform">Start Building Now</button>
-                            <button className="px-12 py-5 glass-panel text-white font-black rounded-2xl border border-white/10 hover:bg-white/5 transition-all flex items-center justify-center gap-3"><Github className="w-5 h-5" /> Fork on GitHub</button>
+                    {/* Footer */}
+                    <footer className="text-center pt-8 border-t border-slate-200">
+                        <div className="flex items-center justify-center gap-6 mb-4">
+                            <span className="flex items-center gap-1 text-sm text-slate-500">
+                                <Award className="w-4 h-4" /> This paper received the Best Paper Award at PyCon 2026
+                            </span>
+                            <span className="flex items-center gap-1 text-sm text-slate-500">
+                                <Users className="w-4 h-4" /> 847 citations
+                            </span>
                         </div>
-                    </div>
-                </section>
+                        <p className="text-xs text-slate-400">
+                            © 2026 ScholarStack Research Foundation. All rights reserved.
+                        </p>
+                    </footer>
+                </motion.article>
             </main>
-
-            {/* Footer */}
-            <footer className="border-t border-white/5 py-16">
-                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
-                    <div className="flex items-center gap-3 opacity-50">
-                        <Rocket className="w-5 h-5 text-flask" />
-                        <span className="text-sm font-bold tracking-tight text-white uppercase tracking-widest">FlaskHub</span>
-                    </div>
-                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.4em]">© 2026 FLASK_HUB // ENGINE • 23/30 DISPATCHED</p>
-                </div>
-            </footer>
         </div>
-    );
-}
-
-function Check({ className }: { className?: string }) {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className={className}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-        </svg>
     );
 }

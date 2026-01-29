@@ -19,3 +19,8 @@ venv/
 .mypy_cache/
 .vercel
 .env*.local
+
+# Security - env files
+.env.local
+.env.*.local
+.env.production

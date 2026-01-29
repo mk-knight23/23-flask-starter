@@ -1,10 +1,11 @@
 {
-  "name": "23-flask-starter",
+    "name": "48-starter-flask",
   "private": false,
   "version": "2.1.0",
-  "description": "Lightweight Flask/React starter modernized with React 19, Vite 6, and Tailwind CSS v4.",
+    "description": "Lightweight Flask/React starter modernized with React 19, Vite 6, and Tailwind CSS v4. Academic/Research theme.",
   "type": "module",
   "scripts": {
+    "lint": "eslint .",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -24,24 +25,20 @@
     "type": "git",
     "url": "git+https://github.com/mk-knight23/23-flask-starter.git"
   },
-  "homepage": "https://mk-knight23.github.io/23-flask-starter/",
-  "dependencies": {
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.0.1",
-    "lucide-react": "^0.474.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwind-merge": "^2.6.0"
-  },
+    "homepage": "https://mk-knight23.github.io/48-starter-flask/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mk-knight23/48-starter-flask.git"
+    },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.1",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.9",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5.7.3",
-    "vite": "^6.0.11"
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1"
   }
 }
