@@ -1,39 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-    --color-academic-primary: #1a365d;
-    --color-academic-secondary: #2c5282;
-    --color-academic-accent: #c53030;
-    --color-academic-cream: #fffff0;
-    --color-academic-paper: #fdfbf7;
-    --color-academic-text: #2d3748;
-    --color-academic-muted: #718096;
-    --color-academic-border: #e2e8f0;
+    /* Bright Modern Color Palette */
+    --color-primary: #2563EB;
+    --color-primary-light: #3B82F6;
+    --color-primary-dark: #1D4ED8;
+    --color-accent: #8B5CF6;
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+
+    --color-bg: #FFFFFF;
+    --color-surface: #F8FAFC;
+    --color-surface-hover: #F1F5F9;
+    --color-text: #0F172A;
+    --color-text-secondary: #475569;
+    --color-text-muted: #64748B;
+    --color-border: #E2E8F0;
 }
 
 @layer base {
     body {
-        @apply bg-[#fdfbf7] text-[#2d3748] antialiased selection:bg-blue-100;
-        font-family: 'Georgia', 'Times New Roman', serif;
+        @apply bg-slate-50 text-slate-900 antialiased;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', system-ui, sans-serif;
+        font-weight: 700;
     }
 }
 
 @layer components {
     .paper-card {
-        @apply bg-white border border-slate-200 rounded-lg shadow-sm p-8;
+        @apply bg-white border border-slate-200 rounded-xl p-8;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        transition: all 0.2s ease;
+    }
+
+    .paper-card:hover {
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        border-color: #2563EB;
     }
 
     .citation {
-        @apply text-xs text-slate-500 font-mono hover:text-blue-600 cursor-pointer transition-colors;
+        @apply text-xs text-slate-500 font-mono hover:text-primary cursor-pointer transition-colors;
     }
 
     .citation-number {
-        @apply inline-flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-slate-300 rounded hover:bg-blue-600 cursor-pointer transition-colors;
+        @apply inline-flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-slate-300 rounded hover:bg-primary cursor-pointer transition-colors;
     }
 
     .footnote {
@@ -53,7 +67,7 @@
     }
 
     .author-affiliation {
-        @apply text-sm text-slate-500 italic;
+        @apply text-sm text-slate-500;
     }
 
     .abstract-heading {
@@ -61,31 +75,11 @@
     }
 
     .abstract-text {
-        @apply text-base leading-relaxed text-slate-700 italic;
+        @apply text-base leading-relaxed text-slate-700;
     }
 
     .section-heading {
         @apply text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200;
-    }
-
-    .math-equation {
-        @apply font-mono text-sm bg-slate-50 p-4 rounded border border-slate-200 my-4 text-center;
-    }
-
-    .data-table {
-        @apply w-full text-sm border-collapse;
-    }
-
-    .data-table th {
-        @apply px-4 py-2 text-left font-semibold text-slate-700 bg-slate-50 border-b border-slate-200;
-    }
-
-    .data-table td {
-        @apply px-4 py-2 border-b border-slate-100 text-slate-600;
-    }
-
-    .data-table tr:hover td {
-        @apply bg-slate-50;
     }
 
     .methodology-step {
@@ -93,10 +87,19 @@
     }
 
     .methodology-number {
-        @apply flex-shrink-0 w-8 h-8 flex items-center justify-center text-sm font-bold text-white bg-slate-700 rounded-full;
+        @apply flex-shrink-0 w-8 h-8 flex items-center justify-center text-sm font-bold text-white rounded-full;
+        background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
     }
 
-    .methodology-content {
-        @apply flex-1;
+    .btn-primary {
+        @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all;
+        background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+        color: white;
+        box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-primary:hover {
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        transform: translateY(-1px);
     }
 }

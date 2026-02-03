@@ -15,6 +15,10 @@ Flask-Bcrypt==1.0.1
 # Validation
 marshmallow==3.23.1
 
+# Admin Panel
+Flask-Admin==1.6.1
+WTForms==3.1.2
+
 # Production Server
 gunicorn==23.0.0
 

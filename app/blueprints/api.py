@@ -44,11 +44,12 @@ posts_ns = api.namespace('posts', description='Post operations')
 @users_ns.route('/')
 class UserList(Resource):
     """User list and creation"""
-    
+
     def get(self):
-        """List all users"""
-        users = User.query.all()
-        return [user.to_dict() for user in users]
+        """List all users with pagination"""
+        from app.utils.pagination import paginate_query
+        query = User.query
+        return paginate_query(query)
 
     @api.expect(user_model)
     def post(self):
@@ -126,11 +127,12 @@ class UserDetail(Resource):
 @posts_ns.route('/')
 class PostList(Resource):
     """Post list and creation"""
-    
+
     def get(self):
-        """List all published posts"""
-        posts = Post.query.filter_by(published=True).all()
-        return [post.to_dict() for post in posts]
+        """List all published posts with pagination"""
+        from app.utils.pagination import paginate_query
+        query = Post.query.filter_by(published=True)
+        return paginate_query(query)
 
     @jwt_required()
     @api.expect(post_model)

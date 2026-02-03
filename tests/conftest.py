@@ -2,7 +2,24 @@
 Pytest Configuration and Fixtures
 """
 import pytest
-from app import create_app
+import sys
+import os
+from pathlib import Path
+
+# Add parent directory to path to import app.py correctly
+parent_dir = str(Path(__file__).parent.parent)
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+
+# Import from app.py module (not app package)
+import importlib.util
+spec = importlib.util.spec_from_file_location("app_module", os.path.join(parent_dir, "app.py"))
+app_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(app_module)
+
+create_app = app_module.create_app
+
+# Import models from app package
 from app.models import db
 from app.models.user import User
 
