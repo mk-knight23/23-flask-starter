@@ -235,8 +235,9 @@ MIT License - see LICENSE file for details
 
 ## Live Demo
 
-- Frontend: https://48-starter-flask.vercel.app
-- GitHub: https://github.com/mk-knight23/48-starter-flask
+- **Cloudflare Pages**: https://48-starter-flask.pages.dev ✓
+- **Vercel**: https://48-starter-flask.vercel.app *(backend requires Python hosting)*
+- **GitHub**: https://github.com/mk-knight23/48-starter-flask
 
 ---
 
