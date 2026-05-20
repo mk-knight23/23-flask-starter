@@ -38,7 +38,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^4.7.0",
+    "@vitejs/plugin-react": "^6.0.2",
     "autoprefixer": "^10.4.23",
     "playwright": "^1.58.2",
     "postcss": "^8.5.6",
