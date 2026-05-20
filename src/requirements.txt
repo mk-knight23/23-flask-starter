@@ -1,5 +1,5 @@
 # Flask Starter Dependencies
-Flask>=3.0
+Flask>=3.1.3
 flask-restful>=0.3.10
 flask-cors>=4.0
 Flask-SQLAlchemy>=3.1
