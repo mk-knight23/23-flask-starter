@@ -34,7 +34,7 @@ flask-talisman==1.1.0
 flask-limiter==3.8.0
 
 # Rate limiting storage
-redis==5.2.1
+redis==7.4.0
 
 # Environment
 python-dotenv==1.0.1
