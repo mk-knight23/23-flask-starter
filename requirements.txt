@@ -31,7 +31,7 @@ flake8==7.1.1
 
 # Security
 flask-talisman==1.1.0
-flask-limiter==3.8.0
+flask-limiter==4.1.1
 
 # Rate limiting storage
 redis==5.2.1
